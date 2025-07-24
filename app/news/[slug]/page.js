@@ -1,4 +1,5 @@
 import { NEWS } from "@/public/DUMMY/news-data";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 export default function NewsDetailsPage({ params }) {
@@ -11,7 +12,9 @@ export default function NewsDetailsPage({ params }) {
   return (
     <article className="news-article">
       <header>
-        <img src={`/images/news/${news.image}`} alt={news.date} />
+        <Link href={`/news/${news.slug}/image`}>
+          <img src={`/images/news/${news.image}`} alt={news.date} />
+        </Link>
         <h1>{news.title}</h1>
         <time dateTime={news.date}>{news.date}</time>
       </header>
